@@ -1,0 +1,7 @@
+name 'manta'
+maintainer 'Eagle Genomics Ltd'
+maintainer_email 'chef@eaglegenomics.com'
+license 'apachev2'
+description 'Installs/Configures manta'
+long_description 'Installs/Configures manta'
+version '0.1.0'
