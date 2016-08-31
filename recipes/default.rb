@@ -16,3 +16,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_recipe 'build-essential'
+include_recipe 'apt'
+
+package ['tar', 'zlib1g-dev'] do
+  action :install
+end
+
+remote_file "#{Chef::Config[:file_cache_path]}/#{node['manta']['filename']}" do
+  source node['manta']['url']
+end
+
+execute "Untar #{node['manta']['filename']}" do
+  command "tar -xjf #{node['manta']['filename']}"
+  cwd Chef::Config[:file_cache_path]
+  not_if { ::File.exist?("#{Chef::Config[:file_cache_path]}/#{node['manta']['dirname']}") }
+end
+
+directory "#{Chef::Config[:file_cache_path]}/build" do
+end
+
+bash 'Install manta' do
+  cwd "#{Chef::Config[:file_cache_path]}/build"
+  code <<-EOH
+    ../manta-#{node['manta']['version']}.release_src/configure --jobs=4 --prefix=#{node['manta']['install_path']}
+    make -j4 install
+  EOH
+  not_if { ::File.exist?("#{node['manta']['install_path']}/bin/manta") }
+end

@@ -4,4 +4,10 @@ maintainer_email 'chef@eaglegenomics.com'
 license 'apachev2'
 description 'Installs/Configures manta'
 long_description 'Installs/Configures manta'
-version '0.1.0'
+source_url 'https://github.com/EagleGenomics-cookbooks/manta'
+issues_url 'https://github.com/EagleGenomics-cookbooks/manta/issues'
+
+version '1.0.0'
+
+depends 'build-essential'
+depends 'apt'
