@@ -10,7 +10,7 @@ describe file('/usr/local/bin/configManta.py') do
 end
 
 describe command('python /usr/local/bin/configManta.py') do
-  its('stdout') { should match 'Version: 1.0.0' }
+  its('stdout') { should match 'Version: 1.0.3' }
   its('exit_status') { should eq 2 }
 end
 

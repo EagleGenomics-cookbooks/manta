@@ -7,7 +7,7 @@ long_description 'Installs/Configures manta'
 source_url 'https://github.com/EagleGenomics-cookbooks/manta'
 issues_url 'https://github.com/EagleGenomics-cookbooks/manta/issues'
 
-version '1.0.1'
+version '1.0.2'
 
 depends 'build-essential'
 depends 'apt'
