@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/EagleGenomics-cookbooks/manta.svg?branch=master)](https://travis-ci.org/EagleGenomics-cookbooks/manta)
+
 # manta
 
 Description
