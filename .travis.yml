@@ -22,7 +22,7 @@ before_script:
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
   - chef gem install kitchen-docker
   - "/opt/chefdk/bin/chef exec rake tests"
-script:
+script: travis_wait
   - KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 notifications:
   slack:
